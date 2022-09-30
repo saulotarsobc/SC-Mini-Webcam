@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
+    const { ipcRenderer } = require('electron')
 
     const video = document.querySelector('#video');
 
@@ -8,5 +9,12 @@ window.addEventListener('DOMContentLoaded', () => {
         .then((strem) => {
             video.srcObject = strem;
         });
+
+    video.addEventListener('click', () => {
+        ipcRenderer.send('render/call', {
+            function: 'render/call',
+            msg: 'msg de render',
+        });
+    });
 
 });
