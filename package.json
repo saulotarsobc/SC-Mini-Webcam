@@ -38,5 +38,8 @@
     "electron": "^21.0.1",
     "electron-builder": "^23.3.3",
     "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "jquery": "^3.6.1"
   }
 }

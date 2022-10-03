@@ -1,8 +1,8 @@
-button,
-body,
-#video-grid {
-    -webkit-app-region: drag;
-}
+// button,
+// body,
+// #video-grid {
+//     -webkit-app-region: drag;
+// }
 
 body {
     height: 100vh;
@@ -10,29 +10,66 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border-radius: 50%;
-    background-color: rebeccapurple;
+    -webkit-app-region: drag;
 
-    #wrapper {
+    #wrap {
         height: 100vh;
         width: 100vw;
-        border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+        border-radius: 50%;
         overflow: hidden;
+        border: 5px solid tomato;
+
+        #wrap_controls {
+            height: 100%;
+            position: absolute;
+            background-color: rebeccapurple;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .3s ease-in-out;
+        }
+
+        #controls {
+            position: absolute;
+            z-index: 10;
+            background-color: #e6283e;
+            height: 50px;
+            width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 30px;
+
+            button {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+        #wrap_videos {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+
+            // #video {}
+        }
+
+        .hidden {
+            opacity: 0;
+        }
     }
-
-    video {
-        height: 100%;
-        object-fit: fill;
-        // border-radius: 50%;
-    }
-
-
-
-
 }

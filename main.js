@@ -9,20 +9,32 @@ function createWindow() {
     const mainWindow = new BrowserWindow({
         width,
         height,
+        minHeight: 200,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true
         },
         frame: false,
-        // titleBarStyle: "customButtonsOnHover",
+        titleBarStyle: "customButtonsOnHover",
         transparent: true,
         alwaysOnTop: true,
-        resizable: false,
+        resizable: true,
         movable: true,
     });
+
+
+    mainWindow.setAspectRatio(1 / 1);
     mainWindow.loadFile('index.html');
-    // mainWindow.setPosition(1366 - width, 768 - height);
-    // mainWindow.webContents.openDevTools();
+    mainWindow.setPosition(1366 - width, 768 - height);
+    mainWindow.webContents.openDevTools();
+
+    // mainWindow.on("will-resize", () => {
+    //     console.log('will-resize');
+    // });
+
+    // mainWindow.on("will-move", () => {
+    //     console.log('will-move');
+    // });
 }
 
 app.whenReady().then(() => {
@@ -33,16 +45,10 @@ app.whenReady().then(() => {
 });
 
 app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit()
-})
+    if (process.platform !== 'darwin') app.quit();
+});
 
 /////////////////////////////////////////////////////////////////////////////
-ipcMain.on('render/call', async (event, msg) => {
-    console.log(msg);
-
-    event.reply('main/reply', {
-        channel: 'main/reply',
-        msg: 'mensagem do main',
-    });
-
-});
+ipcMain.on('click', () => {
+    console.log(123);
+})
