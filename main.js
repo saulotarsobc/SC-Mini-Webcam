@@ -7,6 +7,10 @@ let CamWindow;
 const minSize = 150;
 const maxSize = 300;
 let size = 150;
+let position_1_a = 200;
+let position_1_b = 200;
+let position_2_a = 400;
+let position_2_b = 400;
 
 function createControlWindow() {
     ControlWindow = new BrowserWindow({
@@ -74,11 +78,11 @@ app.on('window-all-closed', function () {
 ipcMain.on('msg', (event, args) => {
     console.log(args);
 
-    if (args == 'bigSize') {
+    if (args == 'position_1') {
         CamWindow.setPosition(100, 100);
     }
 
-    if (args == 'SmallSize') {
+    if (args == 'position_2') {
         CamWindow.setPosition(300, 300);
     }
 
