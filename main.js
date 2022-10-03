@@ -2,17 +2,15 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
-let width = 250;
-let height = 250;
+let mainWindow;
 
 function createWindow() {
-    const mainWindow = new BrowserWindow({
-        width,
-        height,
+    mainWindow = new BrowserWindow({
+        height: 200,
         minHeight: 200,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
-            nodeIntegration: true
+            nodeIntegration: true,
         },
         frame: false,
         titleBarStyle: "customButtonsOnHover",
@@ -25,16 +23,8 @@ function createWindow() {
 
     mainWindow.setAspectRatio(1 / 1);
     mainWindow.loadFile('index.html');
-    mainWindow.setPosition(1366 - width, 768 - height);
-    mainWindow.webContents.openDevTools();
-
-    // mainWindow.on("will-resize", () => {
-    //     console.log('will-resize');
-    // });
-
-    // mainWindow.on("will-move", () => {
-    //     console.log('will-move');
-    // });
+    // mainWindow.setPosition(1300 - width, 700 - height);
+    // mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
@@ -49,6 +39,18 @@ app.on('window-all-closed', function () {
 });
 
 /////////////////////////////////////////////////////////////////////////////
-ipcMain.on('click', () => {
-    console.log(123);
-})
+ipcMain.on('msg', (event, args) => {
+    console.log(args);
+
+    if (args == 'bigSize'){
+        mainWindow.setPosition(100, 100);
+    }
+
+    if (args == 'SmallSize'){
+        mainWindow.setPosition(300, 300);
+    }
+    
+    if (args == 'close'){
+        mainWindow.close();
+    }
+});

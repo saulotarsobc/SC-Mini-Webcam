@@ -1,19 +1,32 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const { ipcRenderer } = require('electron')
+    const { ipcRenderer } = require('electron');
+    const $ = require('jquery');
 
     const video = document.querySelector('#video');
-    const wrap = document.querySelector('#wrap');
 
-    console.log(wrap);
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then((stream) => {
+            video.srcObject = stream;
+        });
 
-    wrap.addEventListener('click', () => {
-        console.log('click');
-        ipcRenderer.send('click', 'click');
+    $('#bigSize').click(() => {
+        msgToMain('bigSize');
     });
 
-    // navigator.mediaDevices.getUserMedia({ video: true })
-    //     .then((strem) => {
-    //         video.srcObject = strem;
-    //     });
+    $('#SmallSize').click(() => {
+        msgToMain('SmallSize');
+    });
+    
+    $('#record').click(() => {
+        msgToMain('record');
+    });
+    
+    $('#close').click(() => {
+        msgToMain('close');
+    });
+
+    function msgToMain(msg) {
+        ipcRenderer.send('msg', msg);
+    }
 
 });

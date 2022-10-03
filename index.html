@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mini cam</title>
     <link rel="stylesheet" href="./css/main.min.css">
+    <title>Mini WebCam - Electron</title>
 </head>
 
 <body>
     <div id="wrap">
-        <div id="wrap_controls" class="hidden">
+        <div id="wrap_controls" class="">
             <div id="controls">
-                <button type="button" id="small">
+                <button id="bigSize" type="button">
                     <img src="./icons//arrows-up-down-left-right-solid.svg">
                 </button>
 
-                <button type="button">
-                    <img src="./icons/arrow-up-solid.svg">
+                <button id="SmallSize" type="button">
+                    <img src="./icons/arrows-to-dot-solid.svg">
                 </button>
 
-                <button type="button">
+                <button type="button" id="record">
+                    <img src="./icons/target.svg" alt="">
                 </button>
-
-                <button type="button">
+                
+                <button type="button" id="close">
+                    <img src="./icons/close.svg" alt="">
                 </button>
             </div>
         </div>
@@ -33,9 +37,6 @@
             <video id="video" autoplay muted src=""></video>
         </div>
     </div>
-
-    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./rendered.js"></script>
 </body>
 
 </html>
