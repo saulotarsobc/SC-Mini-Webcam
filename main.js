@@ -12,11 +12,11 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
         },
-        // frame: false,
-        titleBarStyle: "customButtonsOnHover",
+        frame: false,
+        // titleBarStyle: "customButtonsOnHover",
         transparent: true,
         alwaysOnTop: true,
-        resizable: true,
+        resizable: false,
         movable: true,
     });
 

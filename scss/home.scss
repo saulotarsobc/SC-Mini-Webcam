@@ -24,12 +24,18 @@ body {
             align-items: center;
             justify-content: center;
             transition: all .3s ease-in-out;
+            z-index: 100;
+            opacity: 0;
+
+            &:hover {
+                opacity: 1;
+            }
         }
 
         #controls {
             position: absolute;
             z-index: 10;
-            background-color: #e6283e40;
+            background-color: #e6283e7e;
             height: 50px;
             width: 180px;
             display: flex;
@@ -59,10 +65,6 @@ body {
             justify-content: center;
 
             // #video {}
-        }
-
-        .hidden {
-            opacity: 0;
         }
     }
 }

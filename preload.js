@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
+
     const { ipcRenderer } = require('electron');
     const $ = require('jquery');
 
@@ -16,11 +17,11 @@ window.addEventListener('DOMContentLoaded', () => {
     $('#SmallSize').click(() => {
         msgToMain('SmallSize');
     });
-    
+
     $('#record').click(() => {
         msgToMain('record');
     });
-    
+
     $('#close').click(() => {
         msgToMain('close');
     });
