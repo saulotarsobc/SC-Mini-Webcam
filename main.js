@@ -10,7 +10,7 @@ let posY = 100;
 function createMainWindow() {
     mainWindow = new BrowserWindow({
         height: 200,
-        width: 50,
+        width: 40,
         minHeight: 200,
         minWidth: 50,
         webPreferences: {
@@ -30,18 +30,18 @@ function createMainWindow() {
 
 function createCamWindow() {
     camWindow = new BrowserWindow({
-        height: 200,
-        width: 200,
-        minHeight: 200,
+        height: 150,
+        width: 150,
+        minHeight: 150,
         webPreferences: {
             preload: path.join(__dirname, 'cam.js'),
-            nodeIntegration: true,
+            // nodeIntegration: true,
         },
         frame: false,
-        titleBarStyle: "customButtonsOnHover",
+        // titleBarStyle: "customButtonsOnHover",
         transparent: true,
         alwaysOnTop: true,
-        resizable: false,
+        resizable: true,
         movable: true,
     });
 
