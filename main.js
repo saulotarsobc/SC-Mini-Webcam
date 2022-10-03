@@ -6,7 +6,7 @@ let ControlWindow;
 let CamWindow;
 const minSize = 150;
 const maxSize = 300;
-let size = 150.
+let size = 150;
 
 function createControlWindow() {
     ControlWindow = new BrowserWindow({
@@ -44,7 +44,7 @@ function createCamWindow() {
             nodeIntegration: true,
         },
         frame: false,
-        // titleBarStyle: "customButtonsOnHover",
+        titleBarStyle: "customButtonsOnHover",
         transparent: true,
         alwaysOnTop: true,
         resizable: true,
