@@ -4,7 +4,6 @@
   "description": "mini web cam com electron",
   "main": "main.js",
   "scripts": {
-    "lint:js": "eslint --fix --ext \".js\" .",
     "start-debug": "electron .  --trace-warnings > ./app-run.log  2>&1",
     "start": "electron .",
     "pack-win": "electron-builder --win",
