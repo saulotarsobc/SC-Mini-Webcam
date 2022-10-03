@@ -1,6 +1,6 @@
 {
-  "name": "mini_webcam",
-  "version": "1.0.0",
+  "name": "mini-webcam",
+  "version": "2.0.0",
   "description": "mini web cam com electron",
   "main": "main.js",
   "scripts": {
@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/saulotarsobc/mini_webcam#readme",
   "devDependencies": {
-    "electron": "^21.0.1",
+    "electron": "^6.1.12",
     "electron-builder": "^23.3.3",
     "sass": "^1.55.0"
   },

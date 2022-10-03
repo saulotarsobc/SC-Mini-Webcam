@@ -7,13 +7,14 @@ let mainWindow;
 function createWindow() {
     mainWindow = new BrowserWindow({
         height: 200,
+        width: 200,
         minHeight: 200,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
         },
         frame: false,
-        // titleBarStyle: "customButtonsOnHover",
+        titleBarStyle: "customButtonsOnHover",
         transparent: true,
         alwaysOnTop: true,
         resizable: false,
@@ -42,15 +43,15 @@ app.on('window-all-closed', function () {
 ipcMain.on('msg', (event, args) => {
     console.log(args);
 
-    if (args == 'bigSize'){
+    if (args == 'bigSize') {
         mainWindow.setPosition(100, 100);
     }
 
-    if (args == 'SmallSize'){
+    if (args == 'SmallSize') {
         mainWindow.setPosition(300, 300);
     }
-    
-    if (args == 'close'){
+
+    if (args == 'close') {
         mainWindow.close();
     }
 });
