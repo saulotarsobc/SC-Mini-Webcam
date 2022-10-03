@@ -28,6 +28,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function msgToMain(msg) {
         ipcRenderer.send('msg', msg);
-    }
+    };
 
 });

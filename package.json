@@ -1,6 +1,6 @@
 {
   "name": "mini-webcam",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "mini web cam com electron",
   "main": "main.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saulotarsobc/mini_webcam.git"
+    "url": "https://github.com/saulotarsobc/mini_webcam.git"
   },
   "keywords": [
     "electron",
