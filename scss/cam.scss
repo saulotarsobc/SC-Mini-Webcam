@@ -1,0 +1,19 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    #wrap_videos {
+        -webkit-app-region: drag;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        border: 2px solid tomato;
+    }
+}
