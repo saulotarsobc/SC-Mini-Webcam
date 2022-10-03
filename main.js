@@ -12,7 +12,7 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
         },
-        frame: false,
+        // frame: false,
         titleBarStyle: "customButtonsOnHover",
         transparent: true,
         alwaysOnTop: true,
