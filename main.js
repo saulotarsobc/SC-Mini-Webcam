@@ -2,15 +2,16 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
-let mainWindow;
-let camWindow;
-let posX = 100;
-let posY = 100;
+let ControlWindow;
+let CamWindow;
+const minSize = 150;
+const maxSize = 300;
+let size = 150.
 
-function createMainWindow() {
-    mainWindow = new BrowserWindow({
-        height: 200,
-        width: 40,
+function createControlWindow() {
+    ControlWindow = new BrowserWindow({
+        height: 280,
+        width: 30,
         minHeight: 200,
         minWidth: 50,
         webPreferences: {
@@ -24,18 +25,23 @@ function createMainWindow() {
         resizable: false,
         movable: true,
     });
-    mainWindow.loadFile('index.html');
-    mainWindow.setPosition(0, 100);
+    ControlWindow.loadFile('index.html');
+    ControlWindow.setPosition(0, 100);
+
+    // ControlWindow('will-move',()=>{
+    //     console.log('move')
+    // });
 }
 
 function createCamWindow() {
-    camWindow = new BrowserWindow({
-        height: 150,
-        width: 150,
-        minHeight: 150,
+    CamWindow = new BrowserWindow({
+        height: size,
+        width: size,
+        minHeight: minSize,
+        maxSize: maxSize,
         webPreferences: {
             preload: path.join(__dirname, 'cam.js'),
-            // nodeIntegration: true,
+            nodeIntegration: true,
         },
         frame: false,
         // titleBarStyle: "customButtonsOnHover",
@@ -46,17 +52,17 @@ function createCamWindow() {
     });
 
 
-    camWindow.setAspectRatio(1 / 1);
-    camWindow.loadFile('cam.html');
-    camWindow.setPosition(300, 300);
-    // camWindow.webContents.openDevTools();
+    CamWindow.setAspectRatio(1 / 1);
+    CamWindow.loadFile('cam.html');
+    CamWindow.setPosition(300, 300);
+    // CamWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
-    createMainWindow();
+    createControlWindow();
     createCamWindow();
     app.on('activate', function () {
-        if (BrowserWindow.getAllWindows().length === 0) createMainWindow();
+        if (BrowserWindow.getAllWindows().length === 0) createControlWindow();
     });
 });
 
@@ -69,15 +75,29 @@ ipcMain.on('msg', (event, args) => {
     console.log(args);
 
     if (args == 'bigSize') {
-        camWindow.setPosition(100, 100);
+        CamWindow.setPosition(100, 100);
     }
 
     if (args == 'SmallSize') {
-        camWindow.setPosition(300, 300);
+        CamWindow.setPosition(300, 300);
+    }
+
+    if (args == 'more') {
+        if (size < maxSize) {
+            size = size + 10
+        }
+        CamWindow.setSize(size, size);
+    }
+
+    if (args == 'less') {
+        if (size > minSize) {
+            size = size - 10
+        }
+        CamWindow.setSize(size, size);
     }
 
     if (args == 'close') {
-        mainWindow.close();
-        camWindow.close();
+        ControlWindow.close();
+        CamWindow.close();
     }
 });

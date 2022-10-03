@@ -18,6 +18,14 @@ window.addEventListener('DOMContentLoaded', () => {
         msgToMain('SmallSize');
     });
 
+    $('#more').click(() => {
+        msgToMain('more');
+    });
+    
+    $('#less').click(() => {
+        msgToMain('less');
+    });
+
     $('#record').click(() => {
         msgToMain('record');
     });
