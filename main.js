@@ -87,13 +87,13 @@ app.on('window-all-closed', function () {
 
 /////////////////////////////////////////////////////////////////////////////
 
-function setPosition() {
+function setState() {
     CamWindow.setPosition(position_0_a, position_0_b);
     CamWindow.setSize(size, size);
 }
 
 ipcMain.on('msg', (event, args) => {
-    console.log(args);
+    // console.log(args);
 
     if (args == 'move_to_position_1') {
         position_0_a = position_1_a;
@@ -119,7 +119,7 @@ ipcMain.on('msg', (event, args) => {
         }
     }
 
-    setPosition();
+    setState();
 
     if (args == 'close') {
         ControlWindow.close();
