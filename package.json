@@ -25,7 +25,13 @@
     "electron",
     "electronjs",
     "webcam",
-    "nodejs"
+    "nodejs",
+    "windows",
+    "linux",
+    "mac",
+    "shortcut",
+    "dual monitor",
+    "dual window"
   ],
   "author": "Saulo Costa",
   "license": "ISC",
