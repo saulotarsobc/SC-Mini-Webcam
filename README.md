@@ -1,13 +1,15 @@
-# mini_webcam
+# Mini Webcam - (Electronjs)
 
-<center>
+## ***Mini Webcam*** feito com electronjs. Com gravação de posições e tamanhos e atalhos.
+
+<div align="center">
     <img src="./img/banner2.png" alt="banner">
-</center>
+</div>
 
 ## Funções
 
-- 1 - Mudar para cena 1
-- 2 - Mudar para cena 2
+- 1 - Mudar para cena 1 (CTRL+1)
+- 2 - Mudar para cena 2 (CTRL+2)
 - 3 - Gravar a posição 1
 - 4 - Gravar a posição 2
 - 5 - Aumentar do frame da câmera
@@ -18,6 +20,8 @@
 
 ## Referências
 
-- [Ícone](https://fontawesome.com/icons)
-- [How do I get the OS window position in electron?](https://stackoverflow.com/questions/55564783/how-do-i-get-the-os-window-position-in-electron)
+- [Ícones](https://fontawesome.com/icons)
+- [How do I get the OS window position in
+electron?](https://stackoverflow.com/questions/55564783/how-do-i-get-the-os-window-position-in-electron)
 - [Elctronjs DOC - setPosition](https://www.electronjs.org/de/docs/latest/api/browser-window#winsetpositionx-y-animate)
+- [Elctronjs DOC - globalShortcut](https://www.electronjs.org/docs/latest/api/global-shortcut)
