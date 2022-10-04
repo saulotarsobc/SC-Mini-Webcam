@@ -11,13 +11,13 @@ let position_0_a = 200;
 let position_0_b = 200;
 let size = 150;
 
-let position_1_a = 300;
-let position_1_b = 300;
-let size_1 = 300
+let position_1_a = position_0_a;
+let position_1_b = position_0_b;
+let size_1 = size;
 
 let position_2_a = 400;
 let position_2_b = 400;
-let size_2 = 300;
+let size_2 = 200;
 
 function createControlWindow() {
     ControlWindow = new BrowserWindow({
