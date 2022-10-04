@@ -10,24 +10,28 @@ window.addEventListener('DOMContentLoaded', () => {
             video.srcObject = stream;
         });
 
-    $('#bigSize').click(() => {
-        msgToMain('bigSize');
+    $('#move_to_position_1').click(() => {
+        msgToMain('move_to_position_1');
     });
 
-    $('#SmallSize').click(() => {
-        msgToMain('SmallSize');
+    $('#move_to_position_2').click(() => {
+        msgToMain('move_to_position_2');
+    });
+
+    $('#update_position_1').click(() => {
+        ipcRenderer.send('update_size_position', 1);
+    });
+
+    $('#update_position_2').click(() => {
+        ipcRenderer.send('update_size_position', 2);
     });
 
     $('#more').click(() => {
         msgToMain('more');
     });
-    
+
     $('#less').click(() => {
         msgToMain('less');
-    });
-
-    $('#record').click(() => {
-        msgToMain('record');
     });
 
     $('#close').click(() => {

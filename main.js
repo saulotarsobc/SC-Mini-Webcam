@@ -6,11 +6,18 @@ let ControlWindow;
 let CamWindow;
 const minSize = 150;
 const maxSize = 300;
+
+let position_0_a = 200;
+let position_0_b = 200;
 let size = 150;
-let position_1_a = 200;
-let position_1_b = 200;
+
+let position_1_a = 300;
+let position_1_b = 300;
+let size_1 = 300
+
 let position_2_a = 400;
 let position_2_b = 400;
+let size_2 = 300;
 
 function createControlWindow() {
     ControlWindow = new BrowserWindow({
@@ -58,7 +65,11 @@ function createCamWindow() {
 
     CamWindow.setAspectRatio(1 / 1);
     CamWindow.loadFile('cam.html');
-    CamWindow.setPosition(300, 300);
+    CamWindow.setPosition(position_0_a, position_0_b);
+    CamWindow.on('will-move', () => {
+        position_0_a = CamWindow.getPosition()[0];
+        position_0_b = CamWindow.getPosition()[1];
+    })
     // CamWindow.webContents.openDevTools();
 }
 
@@ -75,33 +86,60 @@ app.on('window-all-closed', function () {
 });
 
 /////////////////////////////////////////////////////////////////////////////
+
+function setPosition() {
+    CamWindow.setPosition(position_0_a, position_0_b);
+    CamWindow.setSize(size, size);
+}
+
 ipcMain.on('msg', (event, args) => {
     console.log(args);
 
-    if (args == 'position_1') {
-        CamWindow.setPosition(100, 100);
+    if (args == 'move_to_position_1') {
+        position_0_a = position_1_a;
+        position_0_b = position_1_b;
+        size = size_1;
     }
 
-    if (args == 'position_2') {
-        CamWindow.setPosition(300, 300);
+    if (args == 'move_to_position_2') {
+        position_0_a = position_2_a;
+        position_0_b = position_2_b;
+        size = size_2;
     }
 
     if (args == 'more') {
         if (size < maxSize) {
             size = size + 10
         }
-        CamWindow.setSize(size, size);
     }
 
     if (args == 'less') {
         if (size > minSize) {
             size = size - 10
         }
-        CamWindow.setSize(size, size);
     }
+
+    setPosition();
 
     if (args == 'close') {
         ControlWindow.close();
         CamWindow.close();
+    }
+
+});
+
+ipcMain.on('update_size_position', (event, args) => {
+    console.log('posicao atual', CamWindow.getPosition());
+
+    if (args == 1) {
+        position_1_a = CamWindow.getPosition()[0];
+        position_1_b = CamWindow.getPosition()[1];
+        size_1 = CamWindow.getSize()[0];
+    }
+    
+    if (args == 2) {
+        position_2_a = CamWindow.getPosition()[0];
+        position_2_b = CamWindow.getPosition()[1];
+        size_2 = CamWindow.getSize()[0];
     }
 });
