@@ -1,5 +1,21 @@
 # mini_webcam
 
+<center>
+    <img src="./img/banner2.png" alt="banner">
+</center>
+
+## Funções
+
+- 1 - Mudar para cena 1
+- 2 - Mudar para cena 2
+- 3 - Gravar a posição 1
+- 4 - Gravar a posição 2
+- 5 - Aumentar do frame da câmera
+- 6 - Diminuir do frame da câmera
+- 7 - Fechar aplicação
+
+<hr>
+
 ## Referências
 
 - [Ícone](https://fontawesome.com/icons)

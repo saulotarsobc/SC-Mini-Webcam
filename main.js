@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron');
 const path = require('path');
 
 let ControlWindow;
@@ -38,10 +38,6 @@ function createControlWindow() {
     });
     ControlWindow.loadFile('index.html');
     ControlWindow.setPosition(0, 100);
-
-    // ControlWindow('will-move',()=>{
-    //     console.log('move')
-    // });
 }
 
 function createCamWindow() {
@@ -60,6 +56,7 @@ function createCamWindow() {
         alwaysOnTop: true,
         resizable: true,
         movable: true,
+        parent: ControlWindow,
     });
 
 
@@ -76,6 +73,16 @@ function createCamWindow() {
 app.whenReady().then(() => {
     createControlWindow();
     createCamWindow();
+    globalShortcut.register('CommandOrControl+1', () => {
+        // console.log('CommandOrControl+1 is pressed');
+        move_to_position_1();
+    });
+    
+    globalShortcut.register('CommandOrControl+2', () => {
+        // console.log('CommandOrControl+2 is pressed');
+        move_to_position_2();
+    });
+
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createControlWindow();
     });
@@ -85,45 +92,58 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit();
 });
 
+app.on('will-quit', () => {
+    globalShortcut.unregisterAll()
+});
+
 /////////////////////////////////////////////////////////////////////////////
 
 function setState() {
-    CamWindow.setPosition(position_0_a, position_0_b);
+    CamWindow.setPosition(position_0_a, position_0_b, true);
     CamWindow.setSize(size, size);
+}
+
+function move_to_position_1() {
+    position_0_a = position_1_a;
+    position_0_b = position_1_b;
+    size = size_1;
+    setState();
+}
+
+function move_to_position_2() {
+    position_0_a = position_2_a;
+    position_0_b = position_2_b;
+    size = size_2;
+    setState();
 }
 
 ipcMain.on('msg', (event, args) => {
     // console.log(args);
 
     if (args == 'move_to_position_1') {
-        position_0_a = position_1_a;
-        position_0_b = position_1_b;
-        size = size_1;
+        move_to_position_1();
     }
 
     if (args == 'move_to_position_2') {
-        position_0_a = position_2_a;
-        position_0_b = position_2_b;
-        size = size_2;
+        move_to_position_2();
     }
 
     if (args == 'more') {
         if (size < maxSize) {
             size = size + 10
         }
+        setState();
     }
 
     if (args == 'less') {
         if (size > minSize) {
             size = size - 10
         }
+        setState();
     }
 
-    setState();
-
     if (args == 'close') {
-        ControlWindow.close();
-        CamWindow.close();
+        app.quit();
     }
 
 });
