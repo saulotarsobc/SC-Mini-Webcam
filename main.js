@@ -136,7 +136,7 @@ ipcMain.on('update_size_position', (event, args) => {
         position_1_b = CamWindow.getPosition()[1];
         size_1 = CamWindow.getSize()[0];
     }
-    
+
     if (args == 2) {
         position_2_a = CamWindow.getPosition()[0];
         position_2_b = CamWindow.getPosition()[1];
