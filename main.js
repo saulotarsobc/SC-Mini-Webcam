@@ -26,7 +26,7 @@ function createControlWindow() {
         minHeight: 200,
         minWidth: 50,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
+            preload: path.join(__dirname, 'js', 'preload.js'),
             nodeIntegration: true,
         },
         frame: false,
@@ -47,7 +47,7 @@ function createCamWindow() {
         minHeight: minSize,
         maxSize: maxSize,
         webPreferences: {
-            preload: path.join(__dirname, 'cam.js'),
+            preload: path.join(__dirname, 'js', 'cam.js'),
             nodeIntegration: true,
         },
         frame: false,
@@ -73,13 +73,12 @@ function createCamWindow() {
 app.whenReady().then(() => {
     createControlWindow();
     createCamWindow();
+
     globalShortcut.register('CommandOrControl+1', () => {
-        // console.log('CommandOrControl+1 is pressed');
         move_to_position_1();
     });
-    
+
     globalShortcut.register('CommandOrControl+2', () => {
-        // console.log('CommandOrControl+2 is pressed');
         move_to_position_2();
     });
 
