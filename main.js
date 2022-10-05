@@ -17,7 +17,7 @@ let size_1 = size;
 
 let position_2_a = 400;
 let position_2_b = 400;
-let size_2 = 200;
+let size_2 = 250;
 
 function createControlWindow() {
     ControlWindow = new BrowserWindow({
@@ -45,7 +45,7 @@ function createCamWindow() {
         height: size,
         width: size,
         minHeight: minSize,
-        maxSize: maxSize,
+        maxHeight: maxSize,
         webPreferences: {
             preload: path.join(__dirname, 'js', 'cam.js'),
             nodeIntegration: true,
