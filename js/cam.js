@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    const { ipcRenderer } = require('electron');
+    // const { ipcRenderer } = require('electron');
+    // const $ = require('jquery');
 
     const video = document.querySelector('#video');
 
