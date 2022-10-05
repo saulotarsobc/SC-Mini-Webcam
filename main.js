@@ -9,8 +9,7 @@ const maxSize = 300;
 
 let position_0_a = 200;
 let position_0_b = 200;
-// let size = 150;
-let size = 450;
+let size = 150;
 
 let position_1_a = position_0_a;
 let position_1_b = position_0_b;
@@ -68,7 +67,7 @@ function createCamWindow() {
         position_0_a = CamWindow.getPosition()[0];
         position_0_b = CamWindow.getPosition()[1];
     })
-    CamWindow.webContents.openDevTools();
+    // CamWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
