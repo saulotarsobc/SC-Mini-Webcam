@@ -117,7 +117,6 @@ function move_to_position_2() {
 }
 
 ipcMain.on('msg', (event, args) => {
-    // console.log(args);
 
     if (args == 'move_to_position_1') {
         move_to_position_1();
@@ -148,7 +147,6 @@ ipcMain.on('msg', (event, args) => {
 });
 
 ipcMain.on('update_size_position', (event, args) => {
-    console.log('posicao atual', CamWindow.getPosition());
 
     if (args == 1) {
         position_1_a = CamWindow.getPosition()[0];
