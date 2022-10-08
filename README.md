@@ -35,7 +35,7 @@ npm start
 electron-builder --win
 ## ou
 npm run pack-win
-## execultavel na padara 'dist'
+## execultavel na pasta 'dist'
 ```
 
 <hr>
