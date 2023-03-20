@@ -16,34 +16,13 @@
 - 6 - Diminuir do frame da câmera
 - 7 - Fechar aplicação
 
-<hr>
+## Como usar
 
-## Como rodar?
-
-```sh
-git clone https://github.com/saulotarsobc/mini_webcam.git
-cd mini_webcam
-npm install
-npm start
+```bash
+git clone https://github.com/saulotarsobc/SC-Mini-Webcam.gitgit;
+cd SC-Mini-Webcam;
+yarn install;
+yarn start;
+# para gerar um .exe na pasta 'dist'
+yarn win;
 ```
-
-<hr>
-
-## Instalador para windows
-
-```sh
-electron-builder --win
-## ou
-npm run pack-win
-## execultavel na pasta 'dist'
-```
-
-<hr>
-
-## Referências
-
-- [Ícones](https://fontawesome.com/icons)
-- [How do I get the OS window position in electron?](https://stackoverflow.com/questions/55564783/how-do-i-get-the-os-window-position-in-electron)
-- [Elctronjs DOC - setPosition](https://www.electronjs.org/de/docs/latest/api/browser-window#winsetpositionx-y-animate)
-- [Elctronjs DOC - globalShortcut](https://www.electronjs.org/docs/latest/api/global-shortcut)
-- [Master Electron: BrowserWindow - Parent & Child Windows](https://youtu.be/l75UxvoRyI4)
