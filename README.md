@@ -21,8 +21,8 @@
 ```bash
 git clone https://github.com/saulotarsobc/SC-Mini-Webcam.gitgit;
 cd SC-Mini-Webcam;
-yarn install;
-yarn start;
+npm run install;
+npm run start;
 # para gerar um .exe na pasta 'dist'
-yarn win;
+npm run win;
 ```
