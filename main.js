@@ -128,14 +128,14 @@ ipcMain.on('msg', (event, args) => {
 
     if (args == 'more') {
         if (size < maxSize) {
-            size = size + 10
+            size = size + 10;
         }
         setState();
     }
 
     if (args == 'less') {
         if (size > minSize) {
-            size = size - 10
+            size = size - 10;
         }
         setState();
     }
