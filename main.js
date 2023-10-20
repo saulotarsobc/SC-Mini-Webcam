@@ -57,6 +57,7 @@ function createCamWindow() {
         resizable: true,
         movable: true,
         parent: ControlWindow,
+        maximizable: false,
     });
 
 
@@ -66,7 +67,8 @@ function createCamWindow() {
     CamWindow.on('will-move', () => {
         position_0_a = CamWindow.getPosition()[0];
         position_0_b = CamWindow.getPosition()[1];
-    })
+    });
+    CamWindow.maxSize
     // CamWindow.webContents.openDevTools();
 }
 
