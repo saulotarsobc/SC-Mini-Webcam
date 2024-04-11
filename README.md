@@ -19,7 +19,7 @@
 ## Como usar
 
 ```bash
-git clone https://github.com/saulotarsobc/SC-Mini-Webcam.gitgit;
+git clone https://github.com/saulotarsobc/SC-Mini-Webcam.git;
 cd SC-Mini-Webcam;
 npm run install;
 npm run start;
